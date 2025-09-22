@@ -30,6 +30,16 @@ header {
   backdrop-filter: blur(10px);
 }
 
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1001;
+}
+
 .head-left {
   display: flex;
   align-items: center;
@@ -99,7 +109,7 @@ header {
 }
 
 .dropdown:hover .dropbtn {
-  background-color:yellow ;
+  background-color: yellow;
 }
 
 /* Hero Section */
@@ -110,29 +120,36 @@ header {
   overflow: hidden;
 }
 
-.hero-vid {
+.hero-video {
   width: 100%;
   height: 100%;
-  position: relative;
+  object-fit: cover;
+  display: block;
 }
+
 .hero-info {
   z-index: 1;
   position: absolute;
   top: 80px;
   left: 50px;
+  max-width: 400px;
 }
+
 .hero-info h1 {
   font-size: 120px;
-  font-family:'Times New Roman', Times, serif;
+  font-family: 'Times New Roman', Times, serif;
   font-weight: 900;
   margin-top: 30px;
   margin-bottom: 20px;
   color: gray;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
 }
+
 .hero-info p {
-  color: black;
-  max-width: 210px;
+  color: rgba(255,255,255,0.85);
+  max-width: 300px;
 }
+
 .hero-info button {
   background-color: yellow;
   border: 2px solid white;
@@ -142,17 +159,14 @@ header {
   color: black;
   transition: 0.3s;
 }
+
 .hero-info button:hover {
   background-color: transparent;
   color: white;
   box-shadow: 0 0 15px white;
 }
 
-.hero-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+/* Next Button */
 .next-btn {
   width: 120px;
   height: 120px;
@@ -167,8 +181,8 @@ header {
   cursor: pointer;
   z-index: 100;
   transition: 0.3s ease;
-  position: absolute;      /* overlay on video */
-  bottom: 40px;            /* distance from bottom */
+  position: absolute;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -183,11 +197,44 @@ header {
   outline-offset: 4px;
 }
 
-@media (max-width: 768px) {
+/* Responsive */
+@media (max-width: 1024px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .head-right {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.9);
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .head-right.active {
+    display: flex;
+  }
+
+  .head-right ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-info h1 {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-info h1 {
+    font-size: 36px;
+  }
   .next-btn {
     width: 90px;
     height: 90px;
     font-size: 18px;
   }
 }
-
