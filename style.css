@@ -168,22 +168,27 @@ header {
 
 /* Next Button */
 .next-btn {
-  width: 120px;
-  height: 120px;
+  /* Responsive size */
+  width: clamp(70px, 10vw, 120px);
+  height: clamp(70px, 10vw, 120px);
+
   background-color: ghostwhite;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: black;
-  font-size: 24px;
+
+  font-size: clamp(14px, 2.5vw, 24px);
   font-weight: bold;
+  color: black;
+
   cursor: pointer;
   z-index: 100;
   transition: 0.3s ease;
+
   position: absolute;
-  bottom: 40px;
-  left: 50%;
+  bottom: 5%;
+  left: 50%;              /* Default: centered */
   transform: translateX(-50%);
 }
 
@@ -195,6 +200,19 @@ header {
 .next-btn:focus {
   outline: 3px solid white;
   outline-offset: 4px;
+}
+
+/* Desktop: move to bottom-right */
+@media (min-width: 1025px) {
+  .next-btn {
+    left: auto;
+    right: 40px;         /* offset from right */
+    transform: none;     /* remove centering */
+  }
+
+  .next-btn:hover {
+    transform: scale(1.1); /* normal scaling */
+  }
 }
 
 /* Responsive */
