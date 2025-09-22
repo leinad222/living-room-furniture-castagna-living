@@ -64,13 +64,33 @@ header {
 }
 
 .head-right a {
+ position: relative;
   text-decoration: none;
   padding: 10px 20px;
   color: #fff;
   font-size: 15px;
   display: block;
+  transition: color 0.3s ease;
+}
+.head-right a::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;          /* distance from text */
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: white;   /* line color */
+  transition: width 0.3s ease, left 0.3s ease;
 }
 
+.head-right a:hover {
+  color: white; /* optional color change */
+}
+
+.head-right a:hover::after {
+  width: 100%;
+  left: 0;
+}
 /* Dropdown */
 .dropdown .dropbtn {
   background-color: gray;
